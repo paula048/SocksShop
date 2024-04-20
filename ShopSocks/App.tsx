@@ -1,127 +1,44 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
 import React from 'react';
-import type {PropsWithChildren} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-  FlatList
-} from 'react-native';
+import { View, Text } from "react-native";
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
-
-
-import useResult, { ResultJson } from "./src/useResult";
-
-
-
-function App(): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
-
-
-  const { error, loading, jsonResponse } = useResult();
-
-  const renderItem = ({ item }: { item: ResultJson }) => {
-      return (
-        <View style={{paddingTop:20}}>
-          <View>
-            <Text>Category:</Text>
-            <Text>{item.sock_id}</Text>
-          </View>
-          <View>
-            <Text>Type:</Text>
-            <Text>{item.size}</Text>
-          </View>
-        </View>
-      );
-    };
-
-
-
-    const ResultData = (): React.JSX.Element => {
-            if (jsonResponse) {
-                return (
-                    <FlatList
-                        data={jsonResponse}
-                        renderItem={renderItem}
-                        keyExtractor={item => item.sock_id}
-                    />
-                );
-            } else if (!error && loading) {
-                return <Text>Pobieranie danych...</Text>
-            } else {
-                return <Text>Wystąpił błąd podczas pobierania danych</Text>
-            }
-        }
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { createStackNavigator } from "@react-navigation/stack";
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 
 
 
-
-  return (
-    <SafeAreaView style={backgroundStyle}>
-
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Text style={styles.highlight}>Moj test</Text>
-          <View>
-          <ResultData />
-          </View>
+import HomeScreen from "./src/screens/HomeScreen";
+import ShopScreen from "./src/screens/ShopScreen";
+import FavoriteScreen from './src/screens/FavoriteScreen';
+import SettingsScreen from './src/screens/SettingsScreen';
 
 
+// npm install react-native-screens
+// npm install react-native/stack
+// npm install @react-navigation/bottom-tabs
 
-          
+const Tab = createBottomTabNavigator();
 
 
-        </View>
-      </ScrollView>
-    </SafeAreaView>
+export default function App(){
+  //const Stack = createNativeStackNavigator();       to jest dla Stack nawigacji
+  return(
+    <NavigationContainer>
+      <Tab.Navigator initialRouteName="Home">
+      <Tab.Screen name="Home" component={HomeScreen} />
+      <Tab.Screen name="Shop" component={ShopScreen} />
+      <Tab.Screen name="Favorite" component={FavoriteScreen} options={{ tabBarBadge: 3 }}/>
+      <Tab.Screen name="Settings" component={SettingsScreen} />
+      
+      
+
+    </Tab.Navigator>
+    </NavigationContainer>
+
   );
 }
 
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
 
-export default App;
+

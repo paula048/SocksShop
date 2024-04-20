@@ -71,6 +71,9 @@ app.put("/merchants/:id", (req, res) => {
 app.listen(port, () => {
   console.log(`App running on port ${port}.`)
  
+  //      Workig METHOD ------------------------------------------------------
   // merchant_model.deleteMerchant("socks_shop.availability", "sock_id", 2)
+  // merchant_model.createMerchant()
+  // merchant_model.updateMerchant()
 
 })

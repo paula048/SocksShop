@@ -69,7 +69,31 @@ const createMerchant = () => {
         }
         if (results && results.rows) {
           resolve(
-            `A new merchant has been added: ${JSON.stringify(results.rows[0])}`
+            `A new merchant has been added: ${JSON.stringify(results.rows)}`
+          );
+        } else {
+          reject(new Error("No results found"));
+        }
+      }
+    );
+  });
+};
+
+
+
+const addUser = (body) => {
+  return new Promise(function (resolve, reject) {
+    const { id, name, surname, email, password } = body;
+    pool.query(
+      "INSERT INTO socks_shop.users (name, surname, email, password) VALUES ($1, $2, $3, $4) RETURNING *",
+      [name, surname, email, password],
+      (error, results) => {
+        if (error) {
+          reject(error);
+        }
+        if (results && results.rows) {
+          resolve(
+            `A new merchant has been added: ${JSON.stringify(results.rows)}`
           );
         } else {
           reject(new Error("No results found"));
@@ -208,5 +232,6 @@ module.exports = {
   createMerchant,
   deleteMerchant,
   updateMerchant,
-  getUsers
+  getUsers,
+  addUser
 };

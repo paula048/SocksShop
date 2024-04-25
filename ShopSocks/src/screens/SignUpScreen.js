@@ -1,58 +1,91 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, { useState } from 'react';
 import { useNavigation } from "@react-navigation/native";
-import { Alert, Button, Image, Pressable, SafeAreaView, StyleSheet, Switch, Text, TextInput, View } from 'react-native'
+import { Alert, Button, Image, Pressable, SafeAreaView, StyleSheet, Switch, Text, TextInput, View } from 'react-native';
 
 
 
-const logo = require("../img/logo.jpg")
+import useUsers from '../useUsers';
+import { err } from 'react-native-svg';
+
+import useUsersSET from '../useUsersSET';
 
 
 
-export default function SignUpScreen(){
+const KEY_userName = "userName";
+const KEY_userSurname = "userSurname";
+const KEY_userEmail = "userEmail";
+const KEY_userPassword = "userPassword";
 
-    const [click,setClick] = useState(false);
-    const {username,setUsername}=  useState("");
-    const {password,setPassword}=  useState("");
+export default function SignUpScreen({ setIsAuthenticated }) {
+    const [click, setClick] = useState(false);
+    const [name, setName] = useState("");
+    const [surname, setSurame] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
 
     const navigation = useNavigation();
-    return(
+
+    const { error, loading, jsonResponse } = useUsers();
+
+    const getData = async (key) => {
+      try {
+        const value = await AsyncStorage.getItem(key);
+        if (value !== null) {
+          console.log("ASYNC GET, value exist: "+value);
+        }
+      } catch (e) {
+        console.log("ASYNC GET: "+key+"    ERROR: "+e);
+      }
+    };
+
+
+
+
+  
+  const storeData = async (key,value) => {
+    try {
+      await AsyncStorage.setItem(key, value);
+      console.log("ASYNC SET, saving data");
+    } catch (e) {
+      console.log("ASYNC SET, saving data error: "+e);
+    }
+  };
+  
+
+
+
+    const handleSignUp = () => {
+      console.log("TRY set data");
+
+      useUsersSET(name, surname, email, password);
+      setIsAuthenticated(true);
+      navigation.navigate("Home");
+
+
+  };
+
+    return (
         <SafeAreaView style={styles.container}>
-        
-        <Image source={logo} style={styles.image} resizeMode='contain' />
-        <Text style={styles.title}>Login</Text>
-        <View style={styles.inputView}>
-            <TextInput style={styles.input} placeholder='EMAIL OR USERNAME' value={username} onChangeText={setUsername} autoCorrect={false}
-        autoCapitalize='none' />
-            <TextInput style={styles.input} placeholder='PASSWORD' secureTextEntry value={password} onChangeText={setPassword} autoCorrect={false}
-        autoCapitalize='none'/>
-        </View>
-        <View style={styles.rememberView}>
-            <View style={styles.switch}>
-                <Switch  value={click} onValueChange={setClick} trackColor={{true : "green" , false : "gray"}} />
-                <Text style={styles.rememberText}>Remember Me</Text>
+            <Text style={styles.title}>Sign Up</Text>
+            <View style={styles.inputView}>
+                <TextInput style={styles.input} placeholder='NAME'  value={name} onChangeText={setName} autoCorrect={false} autoCapitalize='none' />
+                <TextInput style={styles.input} placeholder='SURNAME'  value={surname} onChangeText={setSurame} autoCorrect={false} autoCapitalize='none' />
+                <TextInput style={styles.input} placeholder='EMAIL' value={email} onChangeText={setEmail} autoCorrect={false} autoCapitalize='none' />
+                <TextInput style={styles.input} placeholder='PASSWORD' secureTextEntry value={password} onChangeText={setPassword} autoCorrect={false} autoCapitalize='none' />
             </View>
-            <View>
-                <Pressable onPress={() => Alert.alert("Forget Password!")}>
-                    <Text style={styles.forgetText}>Forgot Password?</Text>
+
+
+            <View style={styles.buttonView}>
+                <Pressable style={styles.button} onPress={handleSignUp}>
+                    <Text style={styles.buttonText}>Sign up</Text>
                 </Pressable>
             </View>
-        </View>
 
-        <View style={styles.buttonView}>
-            <Pressable style={styles.button} onPress={() => Alert.alert("Login Successfuly!","see you in my instagram if you have questions : must_ait6")}>
-                <Text style={styles.buttonText}>LOGIN</Text>
-            </Pressable>
-            <Text style={styles.optionsText}>OR LOGIN WITH</Text>
-        </View>
-        
-
-
-        <Text style={styles.footerText}>Don't Have Account?<Text style={styles.signup}>  Sign Up</Text></Text>
-
-        
-    </SafeAreaView>
+        </SafeAreaView>
     );
 }
+
 
 
 

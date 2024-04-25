@@ -107,10 +107,9 @@ export default function LoginScreen({ setIsAuthenticated }) {
                 <Pressable style={styles.button} onPress={handleLogin}>
                     <Text style={styles.buttonText}>LOGIN</Text>
                 </Pressable>
-                <Text style={styles.optionsText}>OR LOGIN WITH</Text>
             </View>
 
-            <Text style={styles.footerText}>Don't Have Account?<Text style={styles.signup}>  Sign Up</Text></Text>
+            <Text style={styles.footerText}>Don't Have Account?<Text style={styles.signup} onPress={() => navigation.navigate("SignUp")}>  Sign Up</Text></Text>
         </SafeAreaView>
     );
 }

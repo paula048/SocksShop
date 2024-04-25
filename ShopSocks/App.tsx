@@ -16,7 +16,6 @@ import SignUpScreen from './src/screens/SignUpScreen';
 
 
 
-
 // npm install react-native-screens
 // npm install react-native/stack
 // npm install @react-navigation/bottom-tabs
@@ -44,7 +43,9 @@ export default function App(){
           <Stack.Screen name="Login">
             {(props) => <LoginScreen {...props} setIsAuthenticated={setIsAuthenticated} />}
           </Stack.Screen>
-          <Stack.Screen name="SignUp" component={SignUpScreen} />
+          <Stack.Screen name="SignUp">
+            {(props) => <SignUpScreen {...props} setIsAuthenticated={setIsAuthenticated} />}
+          </Stack.Screen>
         </Stack.Navigator>
       )}
     </NavigationContainer>

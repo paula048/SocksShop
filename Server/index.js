@@ -3,6 +3,8 @@ const app = express()
 const port = 3000
 
 const merchant_model = require('./merchantModel')
+const config = require('./config'); 
+
 
 app.use(express.json())
 app.use(function (req, res, next) {
@@ -36,6 +38,8 @@ app.get('/users', (req, res) => {
   })
 })
 
+
+
 app.post('/merchants', (req, res) => {
   console.log(`Request: `);
 
@@ -48,6 +52,54 @@ app.post('/merchants', (req, res) => {
     res.status(500).send("My ERROR: "+error);
   })
 })
+
+
+app.post('/merchants', (req, res) => {
+  merchant_model.createMerchant(req.body)
+  .then(response => {
+    res.status(200).send(response);
+  })
+  .catch(error => {
+    res.status(500).send(error);
+  })
+})
+
+
+
+app.post('/users', (req, res) => {
+  console.log(`Request: `);
+
+  
+  merchant_model.addUser(req.body)
+  .then(response => {
+    res.status(200).send("OK: "+response);
+  })
+  .catch(error => {
+    res.status(500).send("My ERROR: "+error);
+  })
+})
+
+// // POST endpoint to add a new question
+// app.post('/users', (request, response) => {
+//   // Get the new question object from the request body
+//   const newQuestion = request.body;
+//   console.log(`REQUEST  @@@@@@@@@@@@@@@@@@@@@@@@@@\n ${request.body}`)
+
+//   // Add the new question to the questions array
+//   questions.push(newQuestion);
+
+//   // Send back the updated questions array as the response
+//   response.send(questions);
+// });
+
+
+
+
+
+
+
+
+
 
 
 

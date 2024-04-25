@@ -55,7 +55,6 @@ export default function LoginScreen({ setIsAuthenticated }) {
 
 
     const handleLogin = () => {
-      console.log("LOGIN ..: ");
       console.log(jsonResponse);
 
 

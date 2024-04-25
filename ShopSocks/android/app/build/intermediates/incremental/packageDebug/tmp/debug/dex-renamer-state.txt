@@ -1,0 +1,19 @@
+#Wed Apr 24 16:06:08 CEST 2024
+base.0=D\:\\Kacper ZPSM III\\version 2\\ShopSocks\\android\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
+base.1=D\:\\Kacper ZPSM III\\version 2\\ShopSocks\\android\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
+base.2=D\:\\Kacper ZPSM III\\version 2\\ShopSocks\\android\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\10\\classes.dex
+base.3=D\:\\Kacper ZPSM III\\version 2\\ShopSocks\\android\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\14\\classes.dex
+base.4=D\:\\Kacper ZPSM III\\version 2\\ShopSocks\\android\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes2.dex
+base.5=D\:\\Kacper ZPSM III\\version 2\\ShopSocks\\android\\app\\build\\intermediates\\dex\\debug\\mergeLibDexDebug\\0\\classes.dex
+path.0=classes.dex
+path.1=0/classes.dex
+path.2=10/classes.dex
+path.3=14/classes.dex
+path.4=classes2.dex
+path.5=0/classes.dex
+renamed.0=classes.dex
+renamed.1=classes2.dex
+renamed.2=classes3.dex
+renamed.3=classes4.dex
+renamed.4=classes5.dex
+renamed.5=classes6.dex

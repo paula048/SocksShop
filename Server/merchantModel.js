@@ -10,7 +10,7 @@ const pool = new Pool({
   port: 5432,
 });
 
-const tmp_path = "socks_shop.availability";
+const tmp_path = "socks_shop.sock";
 //get all merchants our database
 const getMerchants = async () => {
   try {
@@ -20,6 +20,29 @@ const getMerchants = async () => {
           reject(error);
         }
         if (results && results.rows) {
+          resolve(results.rows);
+        } else {
+          reject(new Error("No results found"));
+        }
+      });
+    });
+  } catch (error_1) {
+    console.error(error_1);
+    throw new Error("Internal server error");
+  }
+};
+
+const users_path = "socks_shop.users";
+
+const getUsers = async () => {
+  try {
+    return await new Promise(function (resolve, reject) {
+      pool.query(`SELECT * FROM ${users_path}`, (error, results) => {
+        if (error) {
+          reject(error);
+        }
+        if (results && results.rows) {
+          console.log("RES:  "+results);
           resolve(results.rows);
         } else {
           reject(new Error("No results found"));
@@ -184,5 +207,6 @@ module.exports = {
   getMerchants,
   createMerchant,
   deleteMerchant,
-  updateMerchant
+  updateMerchant,
+  getUsers
 };

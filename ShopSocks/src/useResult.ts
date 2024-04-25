@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 
 export type ResultJson = {
-    sock_id: string,
-    size: string,
-    quantity: string
+    id: string,
+    category: string,
+    color: string
 }
 
 type FetchResultsHookResult = {
@@ -26,7 +26,7 @@ const useResult = (): FetchResultsHookResult => {
 
             const localhost = "192.168.2.3";
 
-            const url = "http://192.168.2.5:3000";
+            const url = "http://192.168.164.84:3000";
   
             
 

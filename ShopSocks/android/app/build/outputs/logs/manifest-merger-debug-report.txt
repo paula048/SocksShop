@@ -7,6 +7,7 @@ INJECTED from D:\Kacper ZPSM III\version 2\ShopSocks\android\app\src\debug\Andro
 INJECTED from D:\Kacper ZPSM III\version 2\ShopSocks\android\app\src\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [com.facebook.react:flipper-integration:0.73.6] C:\Users\pauli\.gradle\caches\transforms-3\7ceec762c322db3b2ee74240d8e71306\transformed\jetified-flipper-integration-0.73.6-debug\AndroidManifest.xml:2:1-7:12
 MERGED from [:react-native-async-storage_async-storage] D:\Kacper ZPSM III\version 2\ShopSocks\node_modules\@react-native-async-storage\async-storage\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-7:12
+MERGED from [:react-native-picker_picker] D:\Kacper ZPSM III\version 2\ShopSocks\node_modules\@react-native-picker\picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-7:12
 MERGED from [:react-native-gesture-handler] D:\Kacper ZPSM III\version 2\ShopSocks\node_modules\react-native-gesture-handler\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-7:12
 MERGED from [:react-native-safe-area-context] D:\Kacper ZPSM III\version 2\ShopSocks\node_modules\react-native-safe-area-context\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-7:12
 MERGED from [:react-native-screens] D:\Kacper ZPSM III\version 2\ShopSocks\node_modules\react-native-screens\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-7:12
@@ -181,6 +182,8 @@ MERGED from [com.facebook.react:flipper-integration:0.73.6] C:\Users\pauli\.grad
 MERGED from [com.facebook.react:flipper-integration:0.73.6] C:\Users\pauli\.gradle\caches\transforms-3\7ceec762c322db3b2ee74240d8e71306\transformed\jetified-flipper-integration-0.73.6-debug\AndroidManifest.xml:5:5-44
 MERGED from [:react-native-async-storage_async-storage] D:\Kacper ZPSM III\version 2\ShopSocks\node_modules\@react-native-async-storage\async-storage\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:react-native-async-storage_async-storage] D:\Kacper ZPSM III\version 2\ShopSocks\node_modules\@react-native-async-storage\async-storage\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:react-native-picker_picker] D:\Kacper ZPSM III\version 2\ShopSocks\node_modules\@react-native-picker\picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:react-native-picker_picker] D:\Kacper ZPSM III\version 2\ShopSocks\node_modules\@react-native-picker\picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:react-native-gesture-handler] D:\Kacper ZPSM III\version 2\ShopSocks\node_modules\react-native-gesture-handler\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:react-native-gesture-handler] D:\Kacper ZPSM III\version 2\ShopSocks\node_modules\react-native-gesture-handler\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:react-native-safe-area-context] D:\Kacper ZPSM III\version 2\ShopSocks\node_modules\react-native-safe-area-context\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44

@@ -37,4 +37,9 @@ com.shopsocks.app-packageDebugResources-35 D:\Kacper ZPSM III\version 2\ShopSock
 com.shopsocks.app-merged_res-36 D:\Kacper ZPSM III\version 2\ShopSocks\android\app\build\intermediates\merged_res\debug
 com.shopsocks.app-debug-37 D:\Kacper ZPSM III\version 2\ShopSocks\android\app\src\debug\res
 com.shopsocks.app-main-38 D:\Kacper ZPSM III\version 2\ShopSocks\android\app\src\main\res
-com.shopsocks.app-packaged_res-39 D:\Kacper ZPSM III\version 2\ShopSocks\node_modules\react-native-screens\android\build\intermediates\packaged_res\debug
+com.shopsocks.app-packaged_res-39 D:\Kacper ZPSM III\version 2\ShopSocks\node_modules\@react-native-async-storage\async-storage\android\build\intermediates\packaged_res\debug
+com.shopsocks.app-packaged_res-40 D:\Kacper ZPSM III\version 2\ShopSocks\node_modules\@react-native-picker\picker\android\build\intermediates\packaged_res\debug
+com.shopsocks.app-packaged_res-41 D:\Kacper ZPSM III\version 2\ShopSocks\node_modules\react-native-gesture-handler\android\build\intermediates\packaged_res\debug
+com.shopsocks.app-packaged_res-42 D:\Kacper ZPSM III\version 2\ShopSocks\node_modules\react-native-safe-area-context\android\build\intermediates\packaged_res\debug
+com.shopsocks.app-packaged_res-43 D:\Kacper ZPSM III\version 2\ShopSocks\node_modules\react-native-screens\android\build\intermediates\packaged_res\debug
+com.shopsocks.app-packaged_res-44 D:\Kacper ZPSM III\version 2\ShopSocks\node_modules\react-native-svg\android\build\intermediates\packaged_res\debug

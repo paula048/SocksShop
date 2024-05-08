@@ -1,4 +1,4 @@
-#Wed Apr 24 16:06:08 CEST 2024
+#Tue May 07 13:01:53 CEST 2024
 base.0=D\:\\Kacper ZPSM III\\version 2\\ShopSocks\\android\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
 base.1=D\:\\Kacper ZPSM III\\version 2\\ShopSocks\\android\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
 base.2=D\:\\Kacper ZPSM III\\version 2\\ShopSocks\\android\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\10\\classes.dex

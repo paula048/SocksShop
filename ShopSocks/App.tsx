@@ -13,6 +13,11 @@ import SettingsScreen from './src/screens/SettingsScreen';
 
 import LoginScreen from './src/screens/LoginScreen';
 import SignUpScreen from './src/screens/SignUpScreen';
+import ProductDetailsScreen from './src/screens/ProductDetailsScreen';
+
+
+import TabScreens from './src/screens/TabScreens';
+import StackNav from './src/screens/StackNav';
 
 
 
@@ -32,12 +37,7 @@ export default function App(){
   return(
     <NavigationContainer>
       {isAuthenticated ? ( // Render different navigation depending on authentication status
-        <Tab.Navigator initialRouteName="Home">
-          <Tab.Screen name="Home" component={HomeScreen} />
-          <Tab.Screen name="Shop" component={ShopScreen} />
-          <Tab.Screen name="Favorite" component={FavoriteScreen} options={{ tabBarBadge: 3 }}/>
-          <Tab.Screen name="Settings" component={SettingsScreen} />
-        </Tab.Navigator>
+        <StackNav/>
       ) : (
         <Stack.Navigator>
           <Stack.Screen name="Login">
@@ -46,6 +46,9 @@ export default function App(){
           <Stack.Screen name="SignUp">
             {(props) => <SignUpScreen {...props} setIsAuthenticated={setIsAuthenticated} />}
           </Stack.Screen>
+
+          
+          
         </Stack.Navigator>
       )}
     </NavigationContainer>

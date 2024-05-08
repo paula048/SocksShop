@@ -57,6 +57,30 @@ const getUsers = async () => {
 
 
 
+const getSizes = async () => {
+  try {
+    return await new Promise(function (resolve, reject) {
+      pool.query(`SELECT * FROM socks_shop.availability`,
+      [],
+      (error, results) => {
+          if (error) {
+            reject(error);
+          }
+          if (results && results.rows) {
+            resolve(results.rows);
+          } else {
+            reject(new Error("No results found"));
+          }
+      });
+    });
+  } catch (error_1) {
+    console.error(error_1);
+    throw new Error("Internal server error");
+  }
+};
+
+
+
 
 const createMerchant = () => {
   return new Promise(function (resolve, reject) {
@@ -233,5 +257,6 @@ module.exports = {
   deleteMerchant,
   updateMerchant,
   getUsers,
-  addUser
+  addUser,
+  getSizes
 };

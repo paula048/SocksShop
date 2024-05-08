@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from "react";
+import { Double } from "react-native/Libraries/Types/CodegenTypes";
 
 export type ResultJson = {
     id: string,
     category: string,
-    color: string
+    color: string,
+    brand: string,
+    image: string,
+    price: Double
+
 }
 
 type FetchResultsHookResult = {
@@ -60,4 +65,9 @@ const useResult = (): FetchResultsHookResult => {
     
 }
 
+
+
+
 export default useResult;
+
+

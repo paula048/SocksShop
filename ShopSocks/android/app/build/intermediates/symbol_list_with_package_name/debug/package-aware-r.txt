@@ -2899,6 +2899,7 @@ drawable design_snackbar_background
 drawable ic_arrow_back_black_24
 drawable ic_clear_black_24
 drawable ic_clock_black_24dp
+drawable ic_dropdown
 drawable ic_keyboard_black_24dp
 drawable ic_m3_chip_check
 drawable ic_m3_chip_checked_circle
@@ -2981,6 +2982,7 @@ drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
 drawable redbox_top_border_background
 drawable rn_edit_text_material
+drawable spinner_dropdown_background
 drawable test_level_drawable
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
@@ -3142,6 +3144,8 @@ id dragLeft
 id dragRight
 id dragStart
 id dragUp
+id dropdown_background
+id dropdown_icon
 id dropdown_menu
 id easeIn
 id easeInOut
@@ -3665,6 +3669,8 @@ layout redbox_view
 layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
+layout simple_spinner_dropdown_item
+layout simple_spinner_item
 layout support_simple_spinner_dropdown_item
 mipmap ic_launcher
 mipmap ic_launcher_round

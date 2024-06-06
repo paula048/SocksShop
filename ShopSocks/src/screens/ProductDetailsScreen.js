@@ -1,30 +1,87 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Text, View, FlatList, StyleSheet, Image, TouchableOpacity } from "react-native";
+import { Button, Text, View, FlatList, StyleSheet, Image, TouchableOpacity, Alert } from "react-native";
 import { Picker } from '@react-native-picker/picker';
 import useSizes from '../useSizes';
 import { ScrollView } from 'react-native-gesture-handler';
+import { useNavigation } from "@react-navigation/native";
 
-const ProductDetailsScreen = ({ route }) => {
+import { createStackNavigator } from "@react-navigation/stack";
+
+import FlashMessage, {showMessage, hideMessage} from "react-native-flash-message";
+
+
+// npm i react-native-flash-message
+
+
+const Stack = createStackNavigator();
+// const navigation = useNavigation();
+
+
+const ProductDetailsScreen = ({ route, navigation }) => {
   const selectedItem = route.params?.selectedItem;
   const myID = route.params?.myID;
   const { error, loading, jsonResponse } = useSizes();
   const [selectedValue, setSelectedValue] = useState(null);
+  const [ilosc, setIlosc] = useState(null);                   // pozniej optymalizuj i usun to
   const [options, setOptions] = useState([]);
+
+  const [jsonResSAVE, setJsonResSAVE] = useState([]);
   console.log("ID  ^^^^^^^^^^^^^^: ",myID);
 
   useEffect(() => {
     // Extract unique sizes from jsonResponse where sock_id is equal to 1
     if (jsonResponse) {
       const filteredItems = jsonResponse.filter(item => item.sock_id === myID);
+      setJsonResSAVE(filteredItems);
       const uniqueSizes = Array.from(new Set(filteredItems.map(item => item.size)));
+      // const uniqueIlosc = Array.from(new Set(filteredItems.map(item => item.quantity)));
       setOptions(uniqueSizes);
+      // setIlosc(uniqueIlosc);
+
+      // Jeśli uniqueSizes nie jest pusta, ustaw selectedValue na pierwszy element
+    if (uniqueSizes.length > 0) {
+      setSelectedValue(uniqueSizes[0]);
+      // setIlosc()
+    }
     }
   }, [jsonResponse]);
   
 
   const handleChange = (itemValue, itemIndex) => {
     setSelectedValue(itemValue);
+    console.log("choosed SIZE: "+itemValue);
   }
+  
+
+
+  const onPress = (item) => {
+    setCount(prevCount => prevCount + 1);
+    
+    navigation.navigate("Shop", { selectedItem: item });
+  };
+
+
+  function PressBuyButton(){
+
+    const value =UstawIlosc();
+    console.log("ILOSC PAULA: "+value);
+    navigation.navigate("Shop", { selectedItem: selectedItem, choosedSize:  selectedValue, ilosc: value});
+
+  }
+
+
+  function UstawIlosc(){
+
+    const rozmiar = jsonResSAVE.filter(item => item.size == selectedValue);
+    console.log("romiary tab: "+rozmiar[0].quantity);
+    return rozmiar[0].quantity;
+
+  }
+
+
+
+
+  
 
   return (
     <View style={styles.mainContainer}>
@@ -64,9 +121,20 @@ const ProductDetailsScreen = ({ route }) => {
       </View>
       </ScrollView>
 
-      <Button title="Buy"/>
+      <View>
+        
+      </View>
+
       
 
+      <TouchableOpacity onPress={PressBuyButton}>
+        <Text>Press me</Text>
+      </TouchableOpacity>
+
+      <Button title="Buy" onPress={PressBuyButton}/>
+      
+      
+      <FlashMessage position={'center'} />
     </View>
   );
   

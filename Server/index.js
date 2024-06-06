@@ -40,50 +40,8 @@ app.get('/users', (req, res) => {
 
 
 
-app.get('/sizes', (req, res) => {
-  console.log("Wyswietlanie: "+ JSON.stringify(req.body));
-  merchant_model.getSizes()
-  .then(response => {
-    console.log("VALUE: "+JSON.stringify(response.body));
-    res.status(200).send(response);
-  })
-  .catch(error => {
-    res.status(500).send(error);
-  })
-})
-
-
-
-app.post('/merchants', (req, res) => {
-  console.log(`Request: `);
-
-  
-  merchant_model.createMerchant(req.body)
-  .then(response => {
-    res.status(200).send("OK: "+response);
-  })
-  .catch(error => {
-    res.status(500).send("My ERROR: "+error);
-  })
-})
-
-
-app.post('/merchants', (req, res) => {
-  merchant_model.createMerchant(req.body)
-  .then(response => {
-    res.status(200).send(response);
-  })
-  .catch(error => {
-    res.status(500).send(error);
-  })
-})
-
-
-
 app.post('/users', (req, res) => {
   console.log(`Request: `);
-
-  
   merchant_model.addUser(req.body)
   .then(response => {
     res.status(200).send("OK: "+response);
@@ -110,8 +68,55 @@ app.post('/users', (req, res) => {
 
 
 
+app.get('/sizes', (req, res) => {
+  console.log("Wyswietlanie: "+ JSON.stringify(req.body));
+  merchant_model.getSizes()
+  .then(response => {
+    console.log("VALUE: "+JSON.stringify(response.body));
+    res.status(200).send(response);
+  })
+  .catch(error => {
+    res.status(500).send(error);
+  })
+})
 
 
+app.post('/sizes', (req, res) => {
+  console.log(`Request: `);
+  merchant_model.updateSize(req.body)
+  .then(response => {
+    res.status(200).send("OK: "+response);
+  })
+  .catch(error => {
+    res.status(500).send("My ERROR: "+error);
+  })
+})
+
+
+
+app.post('/merchants', (req, res) => {
+  console.log(`Request: `);
+
+  
+  merchant_model.createMerchant(req.body)
+  .then(response => {
+    res.status(200).send("OK: "+response);
+  })
+  .catch(error => {
+    res.status(500).send("My ERROR: "+error);
+  })
+})
+
+
+app.post('/merchants', (req, res) => {
+  merchant_model.createMerchant(req.body)
+  .then(response => {
+    res.status(200).send(response);
+  })
+  .catch(error => {
+    res.status(500).send(error);
+  })
+})
 
 
 
@@ -133,12 +138,27 @@ app.delete('/DELETE/:id', (req, res) => {
 
 
 
+//    SAVE Oryginał
+// app.put("/merchants/:id", (req, res) => {
+//   const id = req.params.id;
+//   const body = req.body;
+//   merchant_model
+//     .updateMerchant(id, body)
+//     .then((response) => {
+//       res.status(200).send(response);
+//     })
+//     .catch((error) => {
+//       res.status(500).send(error);
+//     });
+// });
 
-app.put("/merchants/:id", (req, res) => {
-  const id = req.params.id;
+
+
+
+app.put("/sizes", (req, res) => {
   const body = req.body;
   merchant_model
-    .updateMerchant(id, body)
+    .updateMerchant(body)
     .then((response) => {
       res.status(200).send(response);
     })
@@ -153,6 +173,8 @@ app.listen(port, () => {
   //      Workig METHOD ------------------------------------------------------
   // merchant_model.deleteMerchant("socks_shop.availability", "sock_id", 2)
   // merchant_model.createMerchant()
-  // merchant_model.updateMerchant()
+  // merchant_model.updateMerchant();
+
+  // merchant_model.updateSize(6, 50, 200);
 
 })

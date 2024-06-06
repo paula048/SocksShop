@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Double } from "react-native/Libraries/Types/CodegenTypes";
 
+
+
+const config = require('./config'); 
+
 export type ResultJson = {
     id: string,
     category: string,
@@ -29,9 +33,8 @@ const useResult = (): FetchResultsHookResult => {
     const fetchResults = async () => {
         try {
 
-            const localhost = "192.168.2.3";
 
-            const url = "http://192.168.164.84:3000";
+            const url = `http://${config.localhost}:3000`;
   
             
 

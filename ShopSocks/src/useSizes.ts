@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+const config = require('./config'); 
+
 
 export type ResultJson = {
     sock_id: string,
@@ -26,7 +28,7 @@ const useSizes = (): FetchResultsHookResult => {
 
             const localhost = "192.168.2.3";
 
-            const url = "http://192.168.164.84:3000/sizes";
+            const url = `http://${config.localhost}:3000/sizes`;
   
             
 

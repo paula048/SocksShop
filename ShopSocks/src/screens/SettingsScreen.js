@@ -1,17 +1,22 @@
-import { useNavigation } from "@react-navigation/native";
-import {Button, Text, View} from "react-native";
+import React from 'react';
+import { Button, Text, View } from "react-native";
 
-
-
-
-export default function SettingsScreen(){
-
-    const navigation = useNavigation();
-    return(
-        <View>
-            <Text>Settings Screen</Text>
-
-        </View>
-    );
+interface SettingsScreenProps {
+    setIsAuthenticated: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
+const SettingsScreen: React.FC<SettingsScreenProps> = ({ setIsAuthenticated }) => {
+    const handleLogout = () => {
+        setIsAuthenticated(false);
+        // Optionally navigate to the login screen if you want to
+    };
+
+    return (
+        <View>
+            <Text>Settings Screen</Text>
+            <Button title="Log out" onPress={handleLogout} />
+        </View>
+    );
+};
+
+export default SettingsScreen;

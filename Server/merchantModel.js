@@ -130,6 +130,58 @@ const addUser = (body) => {
 
 
 
+  // "UPDATE socks_shop.availability SET size=$1, quantity=$2 WHERE sock_id=$3",
+
+
+const updateSize = (sock_id, size, quantity) => {
+  return new Promise(function (resolve, reject) {
+    pool.query(
+      "INSERT INTO socks_shop.availability(sock_id, size, quantity) VALUES ($1, $2, $3)",
+      [sock_id, size, quantity],
+      (error, results) => {
+        if (error) {
+          reject(error);
+        }
+        if (results && results.rows) {
+          resolve(
+            `A new merchant has been added: ${JSON.stringify(results.rows)}`
+          );
+        } else {
+          reject(new Error("No results found"));
+        }
+      }
+    );
+  });
+};
+
+
+
+
+// const updateSize = (body) => {
+//   return new Promise(function (resolve, reject) {
+//     const { sock_id, size, quantity } = body;
+//     pool.query(
+//       "UPDATE socks_shop.availability SET size=$1, quantity=$2 WHERE sock_id=$3",
+//       [size, quantity, sock_id],
+//       (error, results) => {
+//         if (error) {
+//           reject(error);
+//         }
+//         if (results && results.rows) {
+//           resolve(
+//             `A new merchant has been added: ${JSON.stringify(results.rows)}`
+//           );
+//         } else {
+//           reject(new Error("No results found"));
+//         }
+//       }
+//     );
+//   });
+// };
+
+
+
+
 
 
 //pierwotne ----------- SAVE
@@ -207,11 +259,12 @@ const deleteMerchant = (from, where, id) => {
 
 
 //pierwotna wersja --------------------  SAVE
-const updateMerchant = (id, body) => {
+const updateMerchant = (body) => {
   return new Promise(function (resolve, reject) {
+    const { sock_id, size, quantity } = body;
     pool.query(
       "UPDATE socks_shop.availability SET quantity = $1 WHERE sock_id=$2 and size=$3 RETURNING *",
-      [20, 1, 36],
+      [quantity, sock_id, size],
       (error, results) => {
         if (error) {
           reject(error);
@@ -258,5 +311,6 @@ module.exports = {
   updateMerchant,
   getUsers,
   addUser,
-  getSizes
+  getSizes,
+  updateSize
 };

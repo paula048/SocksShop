@@ -3,28 +3,14 @@ import React, { useState, useEffect } from "react";
 const config = require('./config'); 
 
 
-// export type ResultJson = {
-//     id: string,
-//     name: string,
-//     surname: string,
-//     password: string
-// }
-
-// type FetchResultsHookResult = {
-//     error: boolean,
-//     loading: boolean,
-//     jsonResponse: ResultJson[] | undefined;
-// }
-
-const useUsersSET = async (name: string, surname: string, email: string, password: string) => {
+const useSizesSET = async (sock_id: string, size: string, quantity: string) => {
     const xhr = new XMLHttpRequest();
     xhr.open("POST", `http://${config.localhost}:3000/users`);
     xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
     const body = JSON.stringify({
-        name: name,
-        surname: surname,
-        email: email,
-        password: password
+        sock_id: sock_id,
+        size: size,
+        quantity: quantity
     });
 
     xhr.onload = () => {
@@ -46,5 +32,5 @@ const useUsersSET = async (name: string, surname: string, email: string, passwor
     }
 }
 
-export default useUsersSET;
+export default useSizesSET;
 

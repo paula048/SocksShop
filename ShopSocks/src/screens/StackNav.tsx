@@ -1,22 +1,25 @@
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import React from 'react';
 import { createStackNavigator } from "@react-navigation/stack";
-
-
-import HomeScreen from './HomeScreen';
 import ProductDetailsScreen from './ProductDetailsScreen';
+import BoughtScreen from './BoughtScreen';
 import TabScreens from './TabScreens';
 
 const Stack = createStackNavigator();
 
-
-const StackNav = () => {
-
-    return(
-        <Stack.Navigator>
-            <Stack.Screen name="HomeNav" component={TabScreens} options={{ headerShown: false }}/>
-            <Stack.Screen name="Product" component={ProductDetailsScreen} />
-        </Stack.Navigator> 
-    )
+interface StackNavProps {
+    setIsAuthenticated: React.Dispatch<React.SetStateAction<boolean>>;
 }
+
+const StackNav: React.FC<StackNavProps> = ({ setIsAuthenticated }) => {
+    return (
+        <Stack.Navigator>
+            <Stack.Screen name="HomeNav">
+                {(props) => <TabScreens {...props} setIsAuthenticated={setIsAuthenticated} />}
+            </Stack.Screen>
+            <Stack.Screen name="Product" component={ProductDetailsScreen} />
+            <Stack.Screen name="AfterBuy" component={BoughtScreen} />
+        </Stack.Navigator>
+    );
+};
 
 export default StackNav;

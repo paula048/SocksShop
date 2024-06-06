@@ -105,6 +105,7 @@ export default function HomeScreen({ navigation }) {
       {/* <Text>{item.name}</Text> */}
       <Text numberOfLines={2} ellipsizeMode="tail">{item.name.substring(0, 40)}</Text>
       <Text style={styles.brand}>{item.price} zł</Text>
+      <Image source={require('../img/heart_empty.png')} style={styles.heartImage} />
     </TouchableOpacity>
   );
 
@@ -144,6 +145,10 @@ const styles = StyleSheet.create({
     width: 100,
     height: 100,
     marginBottom: 5,
+  },
+  heartImage: {
+    width: 20,
+    height: 20,
   },
   brand: {
     fontWeight: 'bold',

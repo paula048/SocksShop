@@ -57,11 +57,9 @@ export default function SignUpScreen({ setIsAuthenticated }) {
 
     const handleSignUp = () => {
       console.log("TRY set data");
-
       useUsersSET(name, surname, email, password);
       setIsAuthenticated(true);
       navigation.navigate("Home");
-
 
   };
 
